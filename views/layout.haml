@@ -1,0 +1,55 @@
+!!!
+
+%html
+  %head
+    %title= @title
+    %meta{:"http-equiv"=>"Content-Type", :content=>"text/html", :charset=>"utf-8"}
+    %link{:rel=>"stylesheet", :href=>"css/main.css"}
+    %link{:rel=>"stylesheet", :href=>"css/bootstrap-4.3.1.min.css"}
+    %script{:src => "js/jquery-3.3.1.slim.min.js"}
+    %script{:src => "js/popper-1.14.7.min.js"}
+    %script{:src => "js/bootstrap-4.3.1.min.js"}
+    %script{:crossorigin => "anonymous", :integrity => "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :src => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"}
+
+
+  %body
+    %header
+      %nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+        %a.navbar-brand{:href => "/"} Title
+        %button.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
+          %span.navbar-toggler-icon
+        #navbarCollapse.collapse.navbar-collapse
+          %ul.navbar-nav.mr-auto
+            - if @nav == 'home'
+              %li.nav-item.active
+                %a.nav-link{:href => "/"}
+                  Home
+                  %span.sr-only (current)
+            - else
+              %li.nav-item
+                %a.nav-link{:href => "/"}
+                  Home
+            - if @nav == 'table'
+              %li.nav-item.active
+                %a.nav-link{:href => "/table"}
+                  Table
+                  %span.sr-only (current)
+            - else
+              %li.nav-item
+                %a.nav-link{:href => "/table"}
+                  Table
+            - if @nav == 'story'
+              %li.nav-item.active
+                %a.nav-link{:href => "/story"}
+                  Story
+                  %span.sr-only (current)
+            - else
+              %li.nav-item
+                %a.nav-link{:href => "/story"}
+                  Story
+  %main.container{:role => "main"}
+    =yield
+  %footer.footer
+    .container
+      %span.text-muted Footer
+
